@@ -10,7 +10,7 @@ import { CalculatorViewComponent } from './component/calculator-view/calculator-
     CalculatorViewComponent
   ],
   imports: [
-    BrowserModule,FormsModule
+    BrowserModule
 
   ],
   providers: [],
