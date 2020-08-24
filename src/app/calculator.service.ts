@@ -20,30 +20,35 @@ export class CalculatorService {
      return this.calc(input)
   }
   if(input ==='%'||input ==='_'){
+    if(this.currentInput==="")return
     switch (input) {
       case '%':
         this.result = parseFloat(this.result)/100+""
         this.currentInput=this.result+""
-        console.log(this.result)
         break
       case '_':
         this.result = -parseFloat(this.result)+""
         this.currentInput=this.result+""
-        console.log(this.result)
         break
         default:
   }
   return this.result;
   }
+  if(this.operator===''&&this.previousInput!=='') {
+    console.log("inside if")
+    this.clear()}
   this.currentInput+=input
-    this.result =this.currentInput
-  console.log('this.currentInput =',this.currentInput, 'this.previousInput =',this.previousInput,'this.result =',this.result )
+  this.result =this.currentInput
+    console.log("out of if this.currentInput =",this.currentInput,
+    ",this.operator=",this.operator )
   return this.result;
   }
 
 
   calc(operator:string){
     if(this.operator==='') {
+      console.log("inside calc  this.currentInput =",this.currentInput,
+      ",this.operator=",this.operator )
       this.previousInput= this.currentInput
       this.currentInput=''
       this.operator=operator
@@ -64,16 +69,17 @@ export class CalculatorService {
  }
 
  displayResult(){
-   this.solve()
+   this.result =this.solve()
 this.operator=''
+console.log("after solve this.currentInput =",this.currentInput,
+",this.previousInput=",this.previousInput,",this.operator=",this.operator )
+return this.result
  }
 
 
  solve():string{
    this.chooseOperation(this.operator)
    console.log("in solve",this.operator)
-
-
    return this.result
  }
 
@@ -81,7 +87,7 @@ this.operator=''
  chooseOperation(operation) {
    if (this.currentInput === '') return
      this.compute()
-   this.currentInput =''
+  //  this.currentInput =''
  }
 
  compute() {
@@ -107,7 +113,8 @@ this.operator=''
    }
    this.previousInput = computation
    this.result=this.previousInput
-   this.currentInput=this.result+""
+   this.currentInput=this.result
   //  this.operator = ''
+
  }
 }

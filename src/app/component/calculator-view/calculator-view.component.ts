@@ -14,7 +14,7 @@ export class CalculatorViewComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  width:number=400
   result:string="";
   textSize:number=5
 
@@ -22,22 +22,35 @@ export class CalculatorViewComponent implements OnInit {
   display(input:string){
 
      this.result = this.calculatorService.display(input)
-     this.fiteText(this.result)
+     this.fitText(this.result)
+
   }
 
   clear(){
     this.result = this.calculatorService.clear()
  }
  displayResult(){
-  this.result =this.calculatorService.solve()
+  this.result =this.calculatorService.displayResult()
+  this.fitText(this.result)
 
 }
-fiteText(result){
-    console.log(result.length,"**********************")
-    if(result.length%1==0 && result.length>5){this.textSize-=0.5}
-     else if(result.length <2){
-       this.textSize=6
-     }
+fitText(result){
+  let scale:number=6
+    for (let index = 0; index < result.length; index++) {
+
+      if(index%1==0 && index>5){
+        this.textSize-=scale
+      }
+        index< 10?scale=scale/2:scale=scale/4
+        if(result.length <2){
+          this.textSize=6
+        }
+    }
+    // if(result.length%1==0 && result.length>5){this.textSize-=0.2}
+    //  else if(result.length <2){
+    //    this.textSize=6
+    //  }
+
 
 }
 
