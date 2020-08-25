@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class CalculatorService {
 
 
-  result:string;
+  result:string='';
   currentInput:string='';
   previousInput:string='';
   operator:string=''
