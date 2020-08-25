@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class CalculatorService {
 
 
-  result:string='';
+  result:string='0';
   currentInput:string='';
   previousInput:string='';
   operator:string=''
@@ -59,7 +59,7 @@ export class CalculatorService {
       }
   }
   clear() {
-    this.result = ''
+    this.result = '0'
     this.currentInput =''
     this.operator = ''
     this.previousInput = ''
@@ -69,15 +69,12 @@ export class CalculatorService {
  displayResult(){
    this.result =this.solve()
 this.operator=''
-console.log("after solve this.currentInput =",this.currentInput,
-",this.previousInput=",this.previousInput,",this.operator=",this.operator )
 return this.result
  }
 
 
  solve():string{
    this.chooseOperation(this.operator)
-   console.log("in solve",this.currentInput)
    return this.result
  }
 
@@ -85,7 +82,6 @@ return this.result
  chooseOperation(operation) {
    if (this.currentInput === '') return
      this.compute()
-  //  this.currentInput =''
  }
 
  compute() {
@@ -112,10 +108,5 @@ return this.result
    this.previousInput = computation+""
    this.result=this.previousInput
    this.currentInput=''
-
-  //  this.currentInput=this.result
-  //  this.currentInput=this.result
-  //  this.operator = ''
-
  }
 }

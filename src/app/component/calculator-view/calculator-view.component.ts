@@ -14,7 +14,7 @@ export class CalculatorViewComponent implements OnInit {
 
   ngOnInit() {
   }
-  result:string="";
+  result:string="0";
   textSize:number=100
 
 
