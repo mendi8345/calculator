@@ -20,7 +20,7 @@ export class CalculatorService {
      return this.calc(input)
   }
   if(input ==='%'||input ==='_'){
-    if(this.currentInput==="")return
+    if(this.currentInput==="")return this.result
     switch (input) {
       case '%':
         this.result = parseFloat(this.result)/100+""
@@ -39,16 +39,12 @@ export class CalculatorService {
     this.clear()}
   this.currentInput+=input
   this.result =this.currentInput
-    console.log("out of if this.currentInput =",this.currentInput,
-    ",this.operator=",this.operator )
   return this.result;
   }
 
 
   calc(operator:string){
     if(this.operator==='') {
-      console.log("inside calc  this.currentInput =",this.currentInput,
-      ",this.operator=",this.operator )
       this.currentInput=this.result
       this.previousInput= this.currentInput
       this.currentInput=''
