@@ -111,7 +111,7 @@ return this.result
      default:
        return
    }
-   this.previousInput = computation
+   this.previousInput = computation+""
    this.result=this.previousInput
    this.currentInput=this.result
   //  this.operator = ''

@@ -1,5 +1,6 @@
 <div class='calculator'>
-    <div class='output' name="result" [ngStyle]="{'font-size': textSize+'em'}">{{result}}</div>
+    <!-- <div class='output' name="result" [ngStyle]="{'font-size': textSize+'em'}">{{result}}</div> -->
+    <div class='output' name="result" [ngStyle]="{'font-size': textSize+'px'}" #output>{{result}}</div>
     <button value="c " (click)="clear() ">AC</button>
     <button class='calculator-key' (click)="display( '_') ">±</button>
     <button class='calculator-key' (click)="display( '%') ">%</button>

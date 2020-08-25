@@ -5,6 +5,7 @@
     align-content: center;
     grid-template-columns: repeat(4, 80px);
     grid-template-rows: minmax(120px, auto) repeat(5, 80px);
+    width: 100%;
 }
 
 button {
@@ -18,7 +19,6 @@ button {
     cursor: pointer;
     outline: none;
     background-color: rgb(207, 202, 202);
-    /* background: linear-gradient(to bottom, rgba(252, 156, 23, 1) 0%, rgba(247, 126, 27, 1) 100%); */
 }
 
 .operator {
@@ -31,14 +31,11 @@ button {
 
 .output {
     grid-column: 1 / -1;
-    /* background-color: black; */
     background: #1c191c;
     color: honeydew;
-    /* font-size: 5em; */
-    /* font-size: calc(4vw + 4vh + 2vmin); */
+    font-size: 700px;
     line-height: 130px;
-    /* width: 392px; */
-    /* transform: scale(1, 1) */
+    width: 100%;
     display: flex;
     align-items: flex-end;
 }

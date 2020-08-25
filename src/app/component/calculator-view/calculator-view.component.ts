@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 // import { Calculator } from 'src/app/calculator.model';
 import { CalculatorService } from 'src/app/calculator.service';
 
@@ -9,14 +9,14 @@ import { CalculatorService } from 'src/app/calculator.service';
 })
 export class CalculatorViewComponent implements OnInit {
 
-
+  // elemetRef:ElementRef;
   constructor(private calculatorService:CalculatorService) { }
 
   ngOnInit() {
   }
   width:number=400
   result:string="";
-  textSize:number=5
+  textSize:number=100
 
 
   display(input:string){
@@ -30,28 +30,13 @@ export class CalculatorViewComponent implements OnInit {
     this.result = this.calculatorService.clear()
  }
  displayResult(){
-  this.result =this.calculatorService.displayResult()
-  this.fitText(this.result)
+   this.result =this.calculatorService.displayResult()
+    this.fitText(this.result)
 
 }
-fitText(result){
-  let scale:number=6
-    for (let index = 0; index < result.length; index++) {
-
-      if(index%1==0 && index>5){
-        this.textSize-=scale
-      }
-        index< 10?scale=scale/2:scale=scale/4
-        if(result.length <2){
-          this.textSize=6
-        }
-    }
-    // if(result.length%1==0 && result.length>5){this.textSize-=0.2}
-    //  else if(result.length <2){
-    //    this.textSize=6
-    //  }
-
-
+  fitText(result){
+    this.textSize=result.length>6? 100/result.length*6 :100
+    console.log("result=",typeof(result) )
 }
 
 }
