@@ -49,6 +49,7 @@ export class CalculatorService {
     if(this.operator==='') {
       console.log("inside calc  this.currentInput =",this.currentInput,
       ",this.operator=",this.operator )
+      this.currentInput=this.result
       this.previousInput= this.currentInput
       this.currentInput=''
       this.operator=operator
@@ -56,6 +57,7 @@ export class CalculatorService {
       }
       else{
         this.solve()
+
         this.operator=operator
         return this.result;
       }
@@ -79,7 +81,7 @@ return this.result
 
  solve():string{
    this.chooseOperation(this.operator)
-   console.log("in solve",this.operator)
+   console.log("in solve",this.currentInput)
    return this.result
  }
 
@@ -113,7 +115,10 @@ return this.result
    }
    this.previousInput = computation+""
    this.result=this.previousInput
-   this.currentInput=this.result
+   this.currentInput=''
+
+  //  this.currentInput=this.result
+  //  this.currentInput=this.result
   //  this.operator = ''
 
  }
