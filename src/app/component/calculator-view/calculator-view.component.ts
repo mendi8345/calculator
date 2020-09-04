@@ -27,14 +27,11 @@ export class CalculatorViewComponent implements OnInit {
     this.result=this.calculatorService.display(input)
     this.result=this.calculatorService.numberWithCommas(this.result)
     this.fitText(this.result)
-    console.log('result',this.result)
     this.clearButton=this.result!=="0"?'C':'AC'
 
   }
 
   clear() {
-    // let previousRes= this.calculatorService.previousInput
-    // let currentRes= this.calculatorService.currentInput
     this.result=this.calculatorService.clear()
     this.textSize=100
     this.clearButton='AC'
