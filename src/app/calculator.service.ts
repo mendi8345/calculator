@@ -11,12 +11,13 @@ export class CalculatorService {
   currentInput: string='';
   previousInput: string='';
   operator: string=''
+  clearButton: string='CH'
 
   constructor() {}
 
   display(input: string): string {
     if (input==='.'&&this.currentInput.includes('.')) return this.result
-    
+
     if (input==='+'||input==='-'||input==='/'||input==='*') {
       this.result=this.calc(input)
       return this.result
@@ -27,20 +28,18 @@ export class CalculatorService {
       switch (input) {
         case '%':
           this.result=parseFloat(this.result)/100+""
-          this.currentInput=this.result+""
           break
         case '_':
           this.result=-parseFloat(this.result)+""
-          this.currentInput=this.result+""
           break
         default:
       }
+      this.currentInput=this.result+""
       return this.result;
     }
 
     if (this.operator===''&&this.previousInput!=='')
       this.clear()
-
     this.currentInput+=input
     this.result=this.currentInput
     return this.result;
@@ -62,11 +61,19 @@ export class CalculatorService {
   }
 
   clear() {
-    this.result='0'
-    this.currentInput=''
-    this.operator=''
-    this.previousInput=''
-    return this.result
+    if( this.result!=='0'){
+      this.currentInput=''
+      this.result='0'
+      return this.result
+    }
+    else{
+      this.result='0'
+      this.currentInput=''
+      this.operator=''
+      this.previousInput=''
+      return this.result
+    }
+
   }
 
   displayResult() {
@@ -112,4 +119,8 @@ export class CalculatorService {
     this.result=this.previousInput
     this.currentInput=''
   }
+
+   numberWithCommas(x) {
+    return x.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 }

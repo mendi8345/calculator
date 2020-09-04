@@ -1,25 +1,25 @@
 <div class='calculator'>
     <!-- <div class='output' name="result" [ngStyle]="{'font-size': textSize+'em'}">{{result}}</div> -->
     <div class='output' name="result" [ngStyle]="{'font-size': textSize+'px'}" #output>{{result}}</div>
-    <button value="c " (click)="clear() ">AC</button>
-    <button class='calculator-key' (click)="display( '_') ">±</button>
-    <button class='calculator-key' (click)="display( '%') ">%</button>
+    <button class='calculator-key function-keys' value="ca" (click)="clear() ">{{clearButton}}</button>
+    <button class='calculator-key function-keys' (click)="display( '_') ">±</button>
+    <button class='calculator-key function-keys' (click)="display( '%') ">%</button>
     <button class='operator calculator-key' (click)="display( '/') ">÷</button>
-    <button class='calculator-key' (click)="display( '7') ">7</button>
-    <button class='calculator-key' (click)="display( '8') ">8</button>
-    <button class='calculator-key' (click)="display( '9') ">9</button>
-    <button class='calculator-key' (click)="display( '*') " class='operator'>*</button>
-    <button class='calculator-key' (click)="display( '4') ">4</button>
-    <button class='calculator-key' (click)="display( '5') ">5</button>
-    <button class='calculator-key' (click)="display( '6') ">6</button>
-    <button class='calculator-key' (click)="display( '-') " class='operator '>-</button>
-    <button class='calculator-key' (click)="display( '1') ">1</button>
-    <button (click)="display( '2') ">2</button>
-    <button class='calculator-key' (click)="display( '3') ">3</button>
-    <button class='calculator-key' (click)="display( '+' ) " class='operator '>+</button>
-    <button class='calculator-key' (click)="display( '0') " class=" span-two ">0</button>
-    <button class='calculator-key' (click)="display( '.') ">●</button>
-    <button class='calculator-key' (click)="displayResult( '=') " class=' operator '>=</button>
+    <button class='calculator-key digit-keys' (click)="display( '7') ">7</button>
+    <button class='calculator-key digit-keys' (click)="display( '8') ">8</button>
+    <button class='calculator-key digit-keys' (click)="display( '9') ">9</button>
+    <button class='operator calculator-key' (click)="display( '*') ">×</button>
+    <button class='calculator-key digit-keys' (click)="display( '4') ">4</button>
+    <button class='calculator-key digit-keys' (click)="display( '5') ">5</button>
+    <button class='calculator-key digit-keys' (click)="display( '6') ">6</button>
+    <button class='operator calculator-key' (click)="display( '-') ">-</button>
+    <button class='calculator-key digit-keys' (click)="display( '1') ">1</button>
+    <button class='calculator-key digit-keys' (click)="display( '2') ">2</button>
+    <button class='calculator-key digit-keys' (click)="display( '3') ">3</button>
+    <button class='operator calculator-key' (click)="display( '+' ) ">+</button>
+    <button class='calculator-key  digit-keys span-two' (click)="display( '0') ">0</button>
+    <button class='calculator-key digit-keys' (click)="display( '.') ">●</button>
+    <button class='operator calculator-key' (click)="displayResult( '=') ">=</button>
 
 
 </div>
