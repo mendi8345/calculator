@@ -16,11 +16,10 @@ export class CalculatorService {
   constructor() {}
 
   display(input: string): string {
-    if (input==='.'){
+    if (input==='.'){   
       if(this.currentInput.includes('.'))
        return this.result;
        this.result=this.result+"."
-          console.log("   this.result= ",this.result)
           this.currentInput=this.result+""
       return this.result;
       }
