@@ -43,8 +43,8 @@ export class CalculatorViewComponent implements OnInit {
   }
   fitText(result) {
 
-    let scale: number=100
-    this.textSize=result.length>6? scale/result.length*6:scale
+    let scale: number=80
+    this.textSize=result.length>7? scale/result.length*7:scale
   }
 
 }
